@@ -43,23 +43,23 @@ The agent returns a structured execution result containing the selected workflow
 
 ## Repository layout
 
-| Path | Responsibility |
-|---|---|
-| `AI_Agent_Workflow_Assessment (1).xlsx` | Company-provided workflow catalogue and test prompts. |
-| `app/excel_loader.py` | Reads workbook rows/sheets into `Workflow` models. |
-| `app/models.py` | Pydantic models for workflows, traces, and results. |
-| `app/selector.py` | LLM router and deterministic offline fallback. |
-| `app/graph.py` | LangGraph orchestration. |
-| `app/tools.py` | Generic tool adapters, input extraction, condition evaluation, and result rendering. |
-| `app/cli.py` | Command-line entry point. |
-| `config/simulated_sources.json` | Local sample records for unavailable systems. |
-| `tests/test_workflow_agent.py` | Functional, negative, condition, and scalability tests. |
-| `.env.example` | Provider configuration template. |
+| Path                                      | Responsibility                                                                                        |
+| ----------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `AI_Agent_Workflow_Assessment (1).xlsx` | Company-provided workflow catalogue and test prompts.                                                 |
+| `app/excel_loader.py`                   | Reads workbook rows/sheets into `Workflow` models.                                                   |
+| `app/models.py`                         | Pydantic models for workflows, traces, and results.                                                   |
+| `app/selector.py`                       | LLM router and deterministic offline fallback.                                                        |
+| `app/graph.py`                          | LangGraph orchestration.                                                                              |
+| `app/tools.py`                          | Generic tool adapters, input extraction, condition evaluation, and result rendering.                  |
+| `app/cli.py`                            | Command-line entry point.                                                                             |
+| `config/simulated_sources.json`         | Local sample records for unavailable systems.                                                         |
+| `tests/test_workflow_agent.py`          | Functional, negative, condition, and scalability tests.                                               |
+| `examples/README.md`                    | Evaluator-facing example requests, expected results, natural-language variations, and negative cases. |
+| `.env.example`                          | Provider configuration template.                                                                      |
 
 ## Setup
 
 ```bash
-cd ExcelReader
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.txt
@@ -94,6 +94,10 @@ python -m app.cli --workbook /path/to/workflows.xlsx "your business request"
 
 The JSON response includes `selected_workflow`, `selection_reason`, `steps_executed`, `final_output`, and structured `data`.
 
+## Example inputs and outputs
+
+See [examples/README.md](examples/README.md) for all ten supplied requests, representative expected results, arbitrary natural-language variations, negative routing examples, and a sample JSON response.
+
 ## Verify the implementation
 
 ```bash
@@ -112,12 +116,12 @@ If a new workflow introduces a completely new external capability, implement tha
 
 ## Tool and condition behavior
 
-| Excel tool category | Generic adapter |
-|---|---|
-| CSV/XLSX/database/source readers | `source_reader` |
-| Calculator, validation, similarity, ranking, classification | `analyzer` |
-| LLM/text generation | `text_generator` |
-| Reporting/export | `reporter` |
+| Excel tool category                                         | Generic adapter    |
+| ----------------------------------------------------------- | ------------------ |
+| CSV/XLSX/database/source readers                            | `source_reader`  |
+| Calculator, validation, similarity, ranking, classification | `analyzer`       |
+| LLM/text generation                                         | `text_generator` |
+| Reporting/export                                            | `reporter`       |
 
 Conditions are evaluated against artifacts produced by the current workflow. Examples include record existence, missing required information, inventory thresholds, duplicate confidence, assignment availability, and failure-rate thresholds.
 
