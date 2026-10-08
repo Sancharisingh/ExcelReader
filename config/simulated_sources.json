@@ -1,0 +1,10 @@
+{
+  "WF001": {"records": [{"product": "Widget A", "current_stock": 4, "minimum_stock": 10}, {"product": "Widget B", "current_stock": 28, "minimum_stock": 10}]},
+  "WF002": {"records": [{"sku": "SKU-101", "internal_price": 100, "vendor_price": 108}, {"sku": "SKU-202", "internal_price": 200, "vendor_price": 230}]},
+  "WF003": {"records": [{"sku": "V-001", "product_name": "Cotton T-shirt"}, {"sku": "", "product_name": "Missing SKU"}, {"sku": "V-003", "product_name": ""}]},
+  "WF005": {"records": [{"order_id": "ORD-1001", "status": "Shipped", "shipment_status": "In transit", "tracking": "TRK-12345", "items": ["Widget A"]}]},
+  "WF006": {"records": [{"sku": "SKU-100", "product_name": "Blue Cotton Tee", "material": "cotton"}, {"sku": "SKU-100", "product_name": "Cotton T-Shirt Blue", "material": "cotton"}]},
+  "WF008": {"records": [{"keyword": "buy cotton t shirt", "category": "T-shirts", "target_page": "/t-shirts"}, {"keyword": "best cotton t shirt", "category": "T-shirts", "target_page": "/t-shirts"}, {"keyword": "buy cotton t shirt", "category": "T-shirts", "target_page": "/t-shirts"}]},
+  "WF009": {"records": [{"employee": "Aisha Khan", "skills": ["python", "kubernetes", "aws"], "workload": 0.3}, {"employee": "Ravi Patel", "skills": ["rust", "kubernetes", "sql"], "workload": 0.2}, {"employee": "Noah Singh", "skills": ["javascript", "react"], "workload": 0.15}]},
+  "WF010": {"records": [{"success": true, "seconds": 2.0}, {"success": false, "seconds": 7.0, "error": "Vendor API timeout"}, {"success": true, "seconds": 3.5}, {"success": true, "seconds": 4.3}]}
+}

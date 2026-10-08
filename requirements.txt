@@ -1,0 +1,9 @@
+langgraph>=0.2.60
+langchain-core>=0.3.30
+langchain-groq>=0.2.3
+langchain-google-genai>=2.0.7
+openpyxl>=3.1.5
+python-dotenv>=1.0.1
+pydantic>=2.10.4
+rapidfuzz>=3.10.1
+pytest>=8.3.4
